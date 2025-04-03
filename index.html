@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HITS AI Assistant - Your intelligent guide to Holy Mary Institute of Technology & Science">
+    <meta name="theme-color" content="#1a237e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>HITS AI Assistant</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Preload placeholder image -->
+    <link rel="preload" href="{{ url_for('static', filename='images/placeholder.jpg') }}" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header" role="banner">
+            <div class="header-content">
+                <div class="title-section">
+                    <div class="title-container">
+                        <h1 class="main-title">HITS AI Assistant</h1>
+                        <p class="subtitle">Your Intelligent Guide to Holy Mary Institute of Technology & Science</p>
+                    </div>
+                </div>
+                <div class="header-features">
+                    <div class="feature">
+                        <i class="fas fa-robot" aria-hidden="true"></i>
+                        <span>AI-Powered Responses</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <span>Smart Search</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-question-circle" aria-hidden="true"></i>
+                        <span>FAQ Support</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section" role="search">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Ask a question about HITS..." 
+                        aria-label="Search query"
+                        class="search-input"
+                    >
+                    <div class="search-buttons">
+                        <button id="searchBtn" class="primary-btn" aria-label="Google Search">
+                            <i class="fas fa-search"></i>
+                            Google Search
+                        </button>
+                        <button id="aiSearchBtn" class="primary-btn" aria-label="BERT Search">
+                            <i class="fas fa-robot"></i>
+                            BERT Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" role="region" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <label for="faqSelect" class="sr-only">Select a question</label>
+                <select class="faq-select" id="faqSelect" aria-label="FAQ questions">
+                    <option value="">Select a question...</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Response Section -->
+        <section class="response-section" role="region" aria-labelledby="response-title">
+            <h2 id="response-title" class="sr-only">Search Results</h2>
+            <div class="response-container" id="responseContainer" role="main">
+                <!-- Responses will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" role="alert" aria-busy="true">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <div class="loading-text">Processing your request...</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html> 
